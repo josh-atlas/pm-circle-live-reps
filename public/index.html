@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PM Circle: Live Reps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --plum:     #210124;
+  --crimson:  #750D37;
+  --sage:     #B3DEC1;
+  --mint:     #DBF9F0;
+  --offwhite: #F7F9F7;
+  --mid:      #5C4068;
+  --white:    #ffffff;
+  --max:      860px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: var(--plum);
+  background: #f0ece8;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 40px rgba(33,1,36,0.15);
+}
+
+/* ── HEADER ──────────────────────────────────────────────────────────────── */
+.header {
+  background: var(--plum);
+  padding: 40px 48px 36px;
+  text-align: center;
+}
+.header img.logo {
+  height: 110px;
+  display: block;
+  margin: 0 auto 16px;
+}
+.header .live-reps {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 8px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.header .subtitle {
+  font-size: 13px;
+  color: var(--sage);
+  font-style: italic;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.header .crimson-rule {
+  border: none;
+  border-top: 2px solid var(--crimson);
+  margin: 0 auto 18px;
+  width: 50%;
+}
+.header .tagline {
+  font-size: 14px;
+  color: var(--mint);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* ── CONTENT PADDING ─────────────────────────────────────────────────────── */
+.content { padding: 0 48px 48px; }
+
+/* ── PROMISE ─────────────────────────────────────────────────────────────── */
+.promise {
+  border: 2px solid var(--crimson);
+  background: var(--offwhite);
+  padding: 18px 24px;
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--plum);
+  line-height: 1.65;
+  margin: 24px 0;
+}
+
+/* ── SECTION LABEL ───────────────────────────────────────────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  margin-top: 28px;
+}
+.sage-rule { border: none; border-top: 2px solid var(--sage);   margin-bottom: 14px; }
+.gray-rule { border: none; border-top: 1px solid #D4C5DC;       margin-bottom: 14px; }
+
+/* ── AT A GLANCE ─────────────────────────────────────────────────────────── */
+.glance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.glance-card {
+  background: var(--mint);
+  padding: 14px 10px;
+  text-align: center;
+}
+.glance-card .glance-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--crimson);
+  display: block;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.glance-card .glance-val {
+  font-size: 13px;
+  color: var(--plum);
+  line-height: 1.5;
+}
+
+/* ── CURRICULUM ──────────────────────────────────────────────────────────── */
+.curriculum { width: 100%; border-collapse: collapse; }
+.curriculum tr + tr .num-cell,
+.curriculum tr + tr .content-cell { border-top: 2px solid var(--white); }
+
+.num-cell {
+  width: 38px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  padding: 12px 6px;
+  vertical-align: middle;
+}
+.num-cell.crimson { background: var(--crimson); }
+.num-cell.plum    { background: var(--plum); color: var(--sage); }
+
+.content-cell {
+  background: var(--offwhite);
+  padding: 10px 16px;
+  vertical-align: middle;
+  border-right: 2px solid var(--white);
+}
+.content-cell.last { border-right: none; }
+
+.session-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--plum);
+  display: block;
+  margin-bottom: 2px;
+}
+.session-desc {
+  font-size: 12px;
+  color: var(--mid);
+}
+
+/* ── HOW IT WORKS ────────────────────────────────────────────────────────── */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.how-card {
+  background: var(--mint);
+  border-top: 3px solid var(--crimson);
+  padding: 14px 14px;
+}
+.how-num   { font-size: 11px; font-weight: 700; color: var(--crimson); margin-right: 4px; }
+.how-title { font-size: 14px; font-weight: 700; color: var(--plum); }
+.how-body  { font-size: 12.5px; color: var(--mid); line-height: 1.55; margin-top: 6px; }
+
+/* ── FOR / NOT FOR ───────────────────────────────────────────────────────── */
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.split-col { padding-right: 24px; }
+.split-col.notfor {
+  padding-left: 24px;
+  padding-right: 0;
+  border-left: 2px solid #D4C5DC;
+}
+.split-col ul { list-style: none; padding: 0; }
+.split-col ul li {
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 4px 0 4px 16px;
+  position: relative;
+  color: var(--plum);
+}
+.split-col.notfor ul li { color: var(--mid); }
+.split-col ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+  font-weight: 700;
+}
+.split-col.notfor ul li::before { color: #B3DEC1; }
+
+/* ── BOTTOM ──────────────────────────────────────────────────────────────── */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 28px;
+  margin-left: -48px;
+  margin-right: -48px;
+  margin-bottom: -48px;
+}
+.investment {
+  background: var(--plum);
+  padding: 24px 28px;
+}
+.investment .inv-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sage);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+.investment .price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  display: inline;
+}
+.investment .price-tag {
+  font-size: 13px;
+  color: var(--sage);
+  display: inline;
+  margin-left: 6px;
+}
+.investment .price-sub  { font-size: 12px; color: var(--sage); margin-top: 6px; display: block; }
+.investment .price-note { font-size: 11.5px; color: var(--sage); font-style: italic; margin-top: 8px; display: block; line-height: 1.5; }
+
+.apply-box { background: var(--mint); padding: 24px 28px; }
+.apply-box .apply-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+.apply-box .apply-intro { font-size: 13px; color: var(--plum); line-height: 1.5; margin-bottom: 10px; }
+.apply-box ul { list-style: none; padding: 0; }
+.apply-box ul li {
+  font-size: 13px;
+  color: var(--plum);
+  line-height: 1.5;
+  padding: 3px 0 3px 16px;
+  position: relative;
+}
+.apply-box ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+  font-weight: 700;
+}
+
+/* ── PDF BUTTON ──────────────────────────────────────────────────────────── */
+.pdf-bar {
+  text-align: center;
+  padding: 16px;
+  background: var(--offwhite);
+  border-bottom: 1px solid #e0d8e4;
+}
+.pdf-btn {
+  display: inline-block;
+  background: var(--crimson);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 2px;
+}
+.pdf-btn:hover { background: #5a0a28; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .content { padding: 0 20px 32px; }
+  .header  { padding: 28px 20px 24px; }
+  .header .live-reps { font-size: 28px; letter-spacing: 5px; }
+  .glance-grid  { grid-template-columns: repeat(2, 1fr); }
+  .how-grid     { grid-template-columns: 1fr; }
+  .split-grid   { grid-template-columns: 1fr; gap: 20px; }
+  .split-col.notfor { border-left: none; border-top: 2px solid #D4C5DC; padding-left: 0; padding-top: 20px; }
+  .bottom-grid  { grid-template-columns: 1fr; margin-left: -20px; margin-right: -20px; margin-bottom: -32px; }
+  .curriculum   { font-size: 12px; }
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- PDF DOWNLOAD BAR -->
+  <div class="pdf-bar">
+    <a class="pdf-btn" href="/overview.pdf" download>↓ Download PDF</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="/logo.jpg" alt="Product Management Circle">
+    <div class="live-reps">LIVE REPS</div>
+    <div class="subtitle">A PM Circle Program</div>
+    <hr class="crimson-rule">
+    <div class="tagline">
+      Go from knowing the right answer in your head to delivering it clearly,<br>
+      confidently, and convincingly when a real interviewer is watching.
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- PROMISE -->
+    <div class="promise">
+      By session 8, you'll have answered 20+ PM interview questions under live conditions, received direct coaching on your exact weak spots, and built the muscle memory that doesn't abandon you when the stakes are real.
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="section-label">Program at a Glance</div>
+    <hr class="sage-rule">
+    <div class="glance-grid">
+      <div class="glance-card">
+        <span class="glance-label">Format</span>
+        <span class="glance-val">8 bi-weekly sessions<br>75–90 min · Zoom</span>
+      </div>
+      <div class="glance-card">
+        <span class="glance-label">Cohort Size</span>
+        <span class="glance-val">8 spots<br>Application-based</span>
+      </div>
+      <div class="glance-card">
+        <span class="glance-label">Time / Week</span>
+        <span class="glance-val">~1.5 hours<br>Session + practice rep</span>
+      </div>
+      <div class="glance-card">
+        <span class="glance-label">Community</span>
+        <span class="glance-val">Zoom (live)<br>WhatsApp (async)</span>
+      </div>
+    </div>
+
+    <!-- CURRICULUM -->
+    <div class="section-label">8-Session Curriculum</div>
+    <hr class="sage-rule">
+    <table class="curriculum">
+      <tr>
+        <td class="num-cell crimson">01</td>
+        <td class="content-cell">
+          <span class="session-title">Product Sense Fundamentals</span>
+          <span class="session-desc">How to structure your thinking from the first word</span>
+        </td>
+        <td class="num-cell plum">02</td>
+        <td class="content-cell last">
+          <span class="session-title">Product Sense Hot Seats</span>
+          <span class="session-desc">Live answers, live feedback, live coaching</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="num-cell crimson">03</td>
+        <td class="content-cell">
+          <span class="session-title">Analytical &amp; Metrics</span>
+          <span class="session-desc">How to define, diagnose, and defend numbers</span>
+        </td>
+        <td class="num-cell plum">04</td>
+        <td class="content-cell last">
+          <span class="session-title">Analytical Hot Seats</span>
+          <span class="session-desc">Live answers, live feedback, live coaching</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="num-cell crimson">05</td>
+        <td class="content-cell">
+          <span class="session-title">Behavioral &amp; Leadership</span>
+          <span class="session-desc">Stories that land with senior interviewers</span>
+        </td>
+        <td class="num-cell plum">06</td>
+        <td class="content-cell last">
+          <span class="session-title">Behavioral Hot Seats</span>
+          <span class="session-desc">Live answers, live feedback, live coaching</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="num-cell crimson">07</td>
+        <td class="content-cell">
+          <span class="session-title">Full Mock Simulation</span>
+          <span class="session-desc">Every participant gets a live prompt under real conditions</span>
+        </td>
+        <td class="num-cell plum">08</td>
+        <td class="content-cell last">
+          <span class="session-title">Debrief &amp; Next Steps</span>
+          <span class="session-desc">Patterns identified, lessons applied, path forward</span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- HOW IT WORKS -->
+    <div class="section-label">How It Works</div>
+    <hr class="sage-rule">
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-num">01</span><span class="how-title">The Hot Seat</span>
+        <p class="how-body">Two participants answer a live prompt. Everyone else scores on structure, insight, and delivery — then compares notes with coach feedback.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">02</span><span class="how-title">Practice Reps</span>
+        <p class="how-body">Between sessions: write out your answer, then record a 10-minute video response. Optional sharing in the group WhatsApp from session 3 onward.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">03</span><span class="how-title">Direct Coaching</span>
+        <p class="how-body">Feedback is specific, not generic. You'll know exactly where you lost the interviewer and exactly what to change next time.</p>
+      </div>
+    </div>
+
+    <!-- FOR / NOT FOR -->
+    <div class="split-grid" style="margin-top: 28px;">
+      <div class="split-col">
+        <div class="section-label">This is for you if…</div>
+        <hr class="sage-rule">
+        <ul>
+          <li>You're actively interviewing or planning to within 3 months</li>
+          <li>You know PM frameworks but freeze or ramble under pressure</li>
+          <li>You've been through courses — you need reps, not more content</li>
+          <li>You want direct, personalized feedback — not generic advice</li>
+        </ul>
+      </div>
+      <div class="split-col notfor">
+        <div class="section-label" style="color: var(--mid);">This is not for you if…</div>
+        <hr class="gray-rule">
+        <ul>
+          <li>You're expecting a structured bootcamp curriculum</li>
+          <li>You're more than 6 months from actively searching</li>
+          <li>You've never worked in tech or an adjacent field</li>
+          <li>You want 1:1 attention at group pricing</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- INVESTMENT + APPLY -->
+  <div class="bottom-grid">
+    <div class="investment">
+      <span class="inv-label">Investment</span>
+      <div>
+        <span class="price">$497</span>
+        <span class="price-tag">founding cohort</span>
+      </div>
+      <span class="price-sub">$797 standard &nbsp;·&nbsp; 8 sessions over 4 months</span>
+      <span class="price-note">Founding cohort members receive priority access to private coaching at a reduced rate.</span>
+    </div>
+    <div class="apply-box">
+      <span class="apply-label">How to Apply</span>
+      <p class="apply-intro">Spots are limited to 8 and reviewed personally. You don't sign up — you apply.</p>
+      <ul>
+        <li>Complete the short application (3 questions)</li>
+        <li>Receive a personal response within 48 hours</li>
+        <li>Confirmed members receive onboarding details</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+</body>
+</html>
