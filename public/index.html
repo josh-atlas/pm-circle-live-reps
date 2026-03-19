@@ -306,6 +306,113 @@ body {
   font-weight: 700;
 }
 
+/* ── BIO ─────────────────────────────────────────────────────────────────── */
+.bio {
+  background: var(--offwhite);
+  border-left: 4px solid var(--crimson);
+  padding: 20px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.bio-stat {
+  background: var(--plum);
+  color: var(--sage);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bio-stat strong {
+  display: block;
+  font-size: 28px;
+  color: white;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.bio-text { flex: 1; }
+.bio-text .bio-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.bio-text p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+.bio-placeholder {
+  font-style: italic;
+  color: #aaa;
+}
+
+/* ── TESTIMONIALS ────────────────────────────────────────────────────────── */
+.testimonials { margin-top: 28px; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.testimonial-card {
+  background: var(--mint);
+  padding: 16px;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '\201C';
+  font-size: 48px;
+  color: var(--sage);
+  line-height: 0;
+  position: absolute;
+  top: 22px;
+  left: 12px;
+  font-family: Georgia, serif;
+}
+.testimonial-quote {
+  font-size: 12.5px;
+  color: var(--plum);
+  line-height: 1.6;
+  padding-top: 18px;
+  padding-left: 8px;
+  font-style: italic;
+}
+.testimonial-attr {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  display: block;
+}
+.testimonial-role {
+  font-size: 11px;
+  color: var(--mid);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ── VALUE ANCHOR ────────────────────────────────────────────────────────── */
+.value-anchor {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--sage);
+  background: var(--crimson);
+  display: inline-block;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
 /* ── PDF BUTTON ──────────────────────────────────────────────────────────── */
 .pdf-bar {
   text-align: center;
@@ -334,7 +441,8 @@ body {
   .header  { padding: 28px 20px 24px; }
   .header .live-reps { font-size: 28px; letter-spacing: 5px; }
   .glance-grid  { grid-template-columns: repeat(2, 1fr); }
-  .how-grid     { grid-template-columns: 1fr; }
+  .how-grid          { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
   .split-grid   { grid-template-columns: 1fr; gap: 20px; }
   .split-col.notfor { border-left: none; border-top: 2px solid #D4C5DC; padding-left: 0; padding-top: 20px; }
   .bottom-grid  { grid-template-columns: 1fr; margin-left: -20px; margin-right: -20px; margin-bottom: -32px; }
@@ -360,6 +468,18 @@ body {
     <div class="tagline">
       Go from knowing the right answer in your head to delivering it clearly,<br>
       confidently, and convincingly when a real interviewer is watching.
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <div class="bio">
+    <div class="bio-stat">
+      <strong>200+</strong>
+      PMs Coached
+    </div>
+    <div class="bio-text">
+      <span class="bio-name">Josh Atlas — Coach &amp; Founder</span>
+      <p class="bio-placeholder">[Your bio goes here — 2–3 sentences on your background, what you've done, and why you coach. E.g. former PM at X, coached 200+ PMs across career transitions and senior-level strategy, obsessed with helping smart people actually perform under pressure.]</p>
     </div>
   </div>
 
@@ -464,16 +584,39 @@ body {
       </div>
     </div>
 
+    <!-- TESTIMONIALS -->
+    <div class="testimonials">
+      <div class="section-label">What People Say</div>
+      <hr class="sage-rule">
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">[Testimonial quote goes here — paste in a direct quote from a coaching client about the impact of working with you.]</p>
+          <span class="testimonial-attr">First Last</span>
+          <span class="testimonial-role">Title, Company</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">[Testimonial quote goes here — paste in a direct quote from a coaching client about the impact of working with you.]</p>
+          <span class="testimonial-attr">First Last</span>
+          <span class="testimonial-role">Title, Company</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">[Testimonial quote goes here — paste in a direct quote from a coaching client about the impact of working with you.]</p>
+          <span class="testimonial-attr">First Last</span>
+          <span class="testimonial-role">Title, Company</span>
+        </div>
+      </div>
+    </div>
+
     <!-- FOR / NOT FOR -->
     <div class="split-grid" style="margin-top: 28px;">
       <div class="split-col">
         <div class="section-label">This is for you if…</div>
         <hr class="sage-rule">
         <ul>
-          <li>You're actively interviewing or planning to within 3 months</li>
-          <li>You know PM frameworks but freeze or ramble under pressure</li>
-          <li>You've been through courses — you need reps, not more content</li>
-          <li>You want direct, personalized feedback — not generic advice</li>
+          <li>You've bombed an interview you knew you were ready for</li>
+          <li>You know the frameworks — you just can't access them under pressure</li>
+          <li>You've spent money on courses and still don't feel interview-ready</li>
+          <li>You want to know exactly why you're losing interviewers, not just "be more structured"</li>
         </ul>
       </div>
       <div class="split-col notfor">
@@ -494,13 +637,14 @@ body {
   <div class="bottom-grid">
     <div class="investment">
       <span class="inv-label">Investment</span>
+      <span class="value-anchor">~$5,000 in value</span>
       <div>
         <span class="price">$897</span>
         <span class="price-tag">founding cohort</span>
       </div>
       <span class="price-sub">$1,197 standard &nbsp;·&nbsp; 8 sessions over 4 months</span>
       <div class="value-stack">
-        <span class="value-stack-label">What's included (~$5,000 value):</span>
+        <span class="value-stack-label">What's included:</span>
         <ul>
           <li>8 live group coaching sessions with direct hot seat feedback</li>
           <li>Scored practice reps every session — structure, insight, delivery</li>
@@ -517,6 +661,8 @@ body {
         <li>Complete the short application (3 questions)</li>
         <li>Receive a personal response within 48 hours</li>
         <li>Confirmed members receive onboarding details</li>
+        <li>Access to ongoing PM resources and opportunities beyond the 8 sessions</li>
+        <li>Continued 1:1 coaching available for the right fits after the cohort</li>
       </ul>
     </div>
   </div>
